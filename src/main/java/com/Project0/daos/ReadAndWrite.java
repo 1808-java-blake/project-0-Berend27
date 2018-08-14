@@ -104,7 +104,7 @@ public class ReadAndWrite {
 	    } //catch (FileNotFoundException fe) { throw (fe);}
 	     catch (IOException e)
 	    {
-	      System.out.println("File reading problem");
+	      //System.out.println("File reading problem");
 	    }
 	    return text;
 	  }
