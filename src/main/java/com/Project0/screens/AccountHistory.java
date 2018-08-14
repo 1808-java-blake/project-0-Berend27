@@ -31,7 +31,7 @@ public class AccountHistory implements Screen {
 		System.out.println("Transaction History");
 		System.out.println("Date             Action           Resulting Balance");
 		try {
-		for(int i = 0; i < split.length - 2; i += 6)
+		for(int i = 0; i < split.length; i += 6)
 		{
 			System.out.println(split[i] + " " + split[i+1] + " " + split[i+2] + 
 					" " + split[i+3] + "  " + split[i+4] + " " + split[i+5]);

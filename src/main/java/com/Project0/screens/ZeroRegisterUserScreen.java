@@ -7,8 +7,11 @@ import com.Project0.daos.ZeroUserDao;
 
 import java.io.*;
 import java.lang.StringBuffer;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ZeroRegisterUserScreen implements Screen {
+	private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm");
 	private Scanner scan = new Scanner(System.in);
 	private ZeroUserDao ud = ZeroUserDao.currentUserDao;
 	private int number;
@@ -108,7 +111,9 @@ public class ZeroRegisterUserScreen implements Screen {
 		balance = Double.parseDouble(scan.nextLine());
 		FileWriter writer = new FileWriter(file);
 	     BufferedWriter buffer = new BufferedWriter(writer);
-	     StringBuffer sb3 = new StringBuffer("Balance ");
+	     LocalDateTime thisTime = LocalDateTime.now();
+	     StringBuffer sb3 = new StringBuffer(dtf.format(thisTime) + " " + "Account Created ");
+	     sb3.append("Balance ");
 	     if (balance < 0)
 		 {
 			balance = 0.00;
@@ -125,7 +130,8 @@ public class ZeroRegisterUserScreen implements Screen {
 			try {
 			FileWriter writer = new FileWriter(file);
 		    BufferedWriter buffer = new BufferedWriter(writer);
-		    StringBuffer sb4 = new StringBuffer("Balance ");
+		    LocalDateTime thisTime = LocalDateTime.now();
+		    StringBuffer sb4 = new StringBuffer(dtf.format(thisTime) + " Account Created Balance ");
 			sb4.append(balance);
 		    sb4.append(" ");
 		    String text = sb4.toString();
